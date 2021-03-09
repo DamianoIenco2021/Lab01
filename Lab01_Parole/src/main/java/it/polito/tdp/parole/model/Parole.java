@@ -14,7 +14,6 @@ public class Parole {
 		listaParole.add(p);
 	}
 	
-	
 	public List<String> getElenco() {
 		Collections.sort(listaParole);
 		return listaParole;
@@ -24,10 +23,10 @@ public class Parole {
 		listaParole.removeAll(listaParole);
 	}
 
+	
 	public String toString() {
 		return  listaParole + "\n";
 	}
-	
 	
 	
 
