@@ -29,12 +29,21 @@ public class FXMLController {
 
     @FXML
     private TextArea txtResult;
+    
+    @FXML
+    private TextArea txtPrestazioni;
+    
+    @FXML
+    private Button btnCancel;
 
     @FXML
     private Button btnReset;
 
     @FXML
     void doInsert(ActionEvent event) {
+    	
+    	this.txtPrestazioni.setText("");
+    	double start= System.nanoTime();
 
     	String lista="";
         String p=txtParola.getText();
@@ -47,19 +56,42 @@ public class FXMLController {
     	this.txtParola.setText("");
     	this.txtResult.setText(lista);
        
-   
+    	double stop= System.nanoTime();
     	
-    	   
-    	}
+    	this.txtPrestazioni.setText("Tempo di esecuzione parola"+ "( parola "+ p + "):" + "\n"+ (stop-start) + "  nanosecondi!");
+  	}
     	
-    
-    
-
-    @FXML
+     @FXML
     void doReset(ActionEvent event) {
+    	 this.txtPrestazioni.setText("");
+     	double start= System.nanoTime();
+    	 
        elenco.reset();
        txtResult.setText("");
+       
+       double stop= System.nanoTime();
+   	
+   	this.txtPrestazioni.setText("Tempo di esecuzione reset" + "\n"+ (stop-start) + "  nanosecondi!");
     	
+    }
+    
+    @FXML
+    void doCancel(ActionEvent event) {
+    	
+    	 this.txtPrestazioni.setText("");
+      	double start= System.nanoTime();
+     	 
+
+    	String list="";
+    	this.txtParola.setText("");
+    	
+    	String daCancellare= this.txtResult.getSelectedText();
+    	elenco.cancella(daCancellare);
+    	this.txtResult.clear();
+    	
+    	   double stop= System.nanoTime();
+    	   	
+    	   	this.txtPrestazioni.setText("Tempo di esecuzione Cancella" + "\n"+ (stop-start) + "  nanosecondi!");
     }
 
     @FXML

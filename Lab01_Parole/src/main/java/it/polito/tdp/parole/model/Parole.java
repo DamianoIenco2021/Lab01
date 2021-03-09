@@ -7,7 +7,8 @@ public class Parole {
 	private List<String>listaParole;
 		
 	public Parole() {
-		this.listaParole=new LinkedList<String>();
+		//this.listaParole=new LinkedList<String>();
+		this.listaParole=new ArrayList<String>();
 	}
 	
 	public void addParola(String p) {
@@ -28,6 +29,8 @@ public class Parole {
 		return  listaParole + "\n";
 	}
 	
-	
+	public void cancella(String s) {
+		listaParole.remove(s);
+	}
 
 }
